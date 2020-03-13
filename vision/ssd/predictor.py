@@ -35,7 +35,7 @@ class Predictor:
         with torch.no_grad():
             self.timer.start()
             scores, boxes = self.net.forward(images)
-            print("Inference time: ", self.timer.end())
+            print("Inference time: ", self.timer.end(),"<",scores.shape,"<",boxes.shape,"<",images.shape)
         boxes = boxes[0]
         scores = scores[0]
         if not prob_threshold:
